@@ -73,7 +73,7 @@ def manage_user():
     data = request.get_json(force=True)
     if db_exists("users", data["uuid"]):
       user = User(username=data["username"], id=data["uuid"], location=data["location"], char_slots=data["char_slots"], char_ids=data["char_ids"])
-      doc_ref = db.collection("users").document(data["id"])
+      doc_ref = db.collection("users").document(data["uuid"])
       doc_ref.update(user.to_dict())
       return "true"
     else:
