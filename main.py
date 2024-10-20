@@ -65,14 +65,14 @@ def manage_user():
     if db_exists("users", data["uuid"]):
       return "false"
     else:
-      user = User(username=data["username"], id=data["uuid"], location=data["location"], total_chars=data["total_chars"], char_ids=data["char_ids"])
+      user = User(username=data["username"], id=data["uuid"], location=data["location"], char_slots=data["char_slots"], char_ids=data["char_ids"])
       db.collection("users").document(user.id).set(user.to_dict())
       return "true"
     
   elif request.method == "PUT":
     data = request.get_json(force=True)
     if db_exists("users", data["uuid"]):
-      user = User(username=data["username"], id=data["uuid"], location=data["location"], total_chars=data["total_chars"], char_ids=data["char_ids"])
+      user = User(username=data["username"], id=data["uuid"], location=data["location"], char_slots=data["char_slots"], char_ids=data["char_ids"])
       doc_ref = db.collection("users").document(data["id"])
       doc_ref.update(user.to_dict())
       return "true"
