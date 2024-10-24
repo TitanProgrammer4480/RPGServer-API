@@ -105,14 +105,14 @@ def manage_char():
     if db_exists("chars", data["id"]):
       return "false"
     else:
-      char = Character(id=data["id"], name=["charname"], location=data["location"], race=data["race"], specialisation=data["specialisation"], skills=data["stats"]["skills"], abilities=data["stats"]["abilities"], quests=data["stats"]["quests"])
+      char = Character(id=data["id"], name=data["charname"], location=data["location"], race=data["race"], specialisation=data["specialisation"], skills=data["stats"]["skills"], abilities=data["stats"]["abilities"], quests=data["stats"]["quests"])
       db.collection("chars").document(char.id).set(char.to_dict())
       return "true"
   
   elif request.method == "PUT":
     data = request.get_json(force=True)
     if db_exists("chars", data["id"]):
-      char = Character(id=data["id"], name=["charname"], location=data["location"], race=data["race"], specialisation=data["specialisation"], skills=data["stats"]["skills"], abilities=data["stats"]["abilities"], quests=data["stats"]["quests"])
+      char = Character(id=data["id"], name=data["charname"], location=data["location"], race=data["race"], specialisation=data["specialisation"], skills=data["stats"]["skills"], abilities=data["stats"]["abilities"], quests=data["stats"]["quests"])
       db.collection("chars").document(char.id).set(char.to_dict())
       return "true"
     else:
