@@ -91,7 +91,7 @@ def manage_user():
     return jsonify({"message": "ERROR: Unauthorized"}), 401
   
 
-@app.route("/api/character", methods=["GET", "POST", "PUT", "DElETE"])
+@app.route("/api/character", methods=["GET", "POST", "PUT", "DELETE"])
 def manage_char():
   auth = request.headers.get("API-Key")
   if auth(auth):
