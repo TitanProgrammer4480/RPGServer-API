@@ -17,7 +17,7 @@ This is a Flask-based REST API that interacts with Google Firebase Firestore to 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/flask-firebase-api.git
+   git clone https://github.com/TitanProgrammer4480/RPGServer-API
    cd RPGServer-API
    ```
 
@@ -62,25 +62,6 @@ API-Key: your_secret_token
 - `POST /api/character` – Creates a new character.
 - `PUT /api/character` – Updates an existing character.
 - `DELETE /api/character` – Deletes a character.
-
-## 📤 Example Requests
-
-### Create a User
-```bash
-curl -X POST "http://localhost:5000/api/user" \
-     -H "API-Key: your_secret_token" \
-     -H "Content-Type: application/json" \
-     -d '{"uuid": "1234", "username": "PlayerOne", "char_slots": 3, "char_ids": []}'
-```
-
-### Retrieve a Character
-```bash
-curl -X GET "http://localhost:5000/api/character" \
-     -H "API-Key: your_secret_token" \
-     -H "Content-Type: application/json" \
-     -d '{"id": "char_5678"}'
-```
-
 
 ## 📜 License
 This project is licensed under the MIT License.
